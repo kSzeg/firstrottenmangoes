@@ -1,6 +1,8 @@
 LighthouseForum::Application.routes.draw do
+  get "users/new"
+  get "users/create"
   resources :movies
-
+  resources :users, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -41,7 +43,7 @@ LighthouseForum::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
