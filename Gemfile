@@ -43,3 +43,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem "therubyracer"
+gem 'twitter-bootstrap-rails'
+gem 'carrierwave'
+gem 'rmagick', '~>2.13.4'

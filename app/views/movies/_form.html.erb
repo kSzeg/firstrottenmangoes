@@ -1,40 +1,44 @@
- <%= form_for @movie do |f| %>
-  <% if @movie.errors.any? %>
-    <div>
-      <%= pluralize(@movie.errors.count, "error") %> prevented this movie from being submitted:
-      <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<%= form_for @movie, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :director, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :director, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :runtime_in_minutes, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :runtime_in_minutes, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :release_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :release_date, :class => 'text_field' %>
+    </div>
+  </div>
+    <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :image, :class => 'file_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :director %><br>
-    <%= f.text_field :director %>
-  </div>
-  <div class="field">
-    <%= f.label :runtime_in_minutes %><br>
-    <%= f.number_field :runtime_in_minutes %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :poster_image_url %><br>
-    <%= f.text_field :poster_image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :release_date %><br>
-    <%= f.datetime_select :release_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                movies_path, :class => 'btn' %>
   </div>
 <% end %>
